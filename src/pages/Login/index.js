@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 import { Container, Content, Info } from "./styles";
-import { login } from "../../services/auth";
+import { login, isAuthenticated } from "../../services/auth";
 
-export default function Login() {
+export default function Login({ history }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      history.push("/home");
+    }
+  });
 
   const handleLogin = e => {
     try {
@@ -15,7 +21,11 @@ export default function Login() {
         setError("Error");
       } else if (username === "raul" && password === "raul") {
         // login("token");
-        console.log("Login...");
+        history.push("/home");
+      } else {
+        setPassword("");
+        setUsername("");
+        setError("Error");
       }
     } catch (err) {
       setError("Error");
@@ -33,6 +43,7 @@ export default function Login() {
         {error && <div className="alert">{error}</div>}
         <form onSubmit={e => handleLogin(e)}>
           <input
+            value={username}
             onChange={e => setUsername(e.target.value)}
             type="text"
             required
@@ -41,8 +52,9 @@ export default function Login() {
             maxLength="20"
           />
           <input
+            value={password}
             onChange={e => setPassword(e.target.value)}
-            type="text"
+            type="password"
             required
             placeholder="password"
             minLength="4"

@@ -10,7 +10,7 @@ export const Container = styled.div`
   .alert {
     padding: 15px;
     display: flex;
-
+    transition: 0.5s ease;
     background: rgba(255, 0, 0, 0.7);
     border: 1px solid rgba(255, 0, 0, 0.8);
     border-radius: 8px;
@@ -19,6 +19,7 @@ export const Container = styled.div`
     color: #ffff;
     justify-content: center;
     align-items: center;
+    transition: 0.3s ease;
   }
 `;
 
@@ -68,6 +69,7 @@ export const Content = styled.div`
       color: #fff;
       padding: 5px 15px;
       cursor: pointer;
+      transition: 0.3s ease-in;
       :hover {
         opacity: 0.8;
         transition: 0.5s ease-in;
