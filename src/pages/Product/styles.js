@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 20px;
+  padding: 0px 15px;
+
   form {
     width: 100%;
     margin: 90px 0;
@@ -44,6 +45,6 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20px 10px;
-  margin: 0px 10px;
+  padding: 20px;
+  margin: 0;
 `;

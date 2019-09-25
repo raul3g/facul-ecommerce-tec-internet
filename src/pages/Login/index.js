@@ -20,7 +20,7 @@ export default function Login({ history }) {
       if (username === "" || password === "") {
         setError("Error");
       } else if (username === "raul" && password === "raul") {
-        // login("token");
+        login("token");
         history.push("/home");
       } else {
         setPassword("");
@@ -31,6 +31,10 @@ export default function Login({ history }) {
       setError("Error");
     }
   };
+
+  if (isAuthenticated() === true) {
+    return <div></div>;
+  }
 
   return (
     <Container>

@@ -27,14 +27,14 @@ export default function Product({ history, match }) {
   if (match.params.id) {
     return (
       <>
-        <Header />
-        <ShowProduct id={match.params.id} />
+        <Header history={history} />
+        <ShowProduct id={match.params.id} history={history} />
       </>
     );
   }
   return (
     <>
-      <Header />
+      <Header history={history} />
       <Container>
         <form onSubmit={e => handleSearch(e)}>
           <div>
@@ -42,6 +42,7 @@ export default function Product({ history, match }) {
               type="text"
               value={search}
               placeholder="Pesquise alguma coisa..."
+              required
               onChange={e => setSearch(e.target.value)}
             />
             <button type="submit">

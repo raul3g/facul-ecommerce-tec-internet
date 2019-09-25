@@ -8,7 +8,7 @@ import BannerProduct from "../../components/BannerProduct";
 export default function Home({ history }) {
   return (
     <>
-      <Header />
+      <Header history={history} />
       <Container>
         <BannerProduct history={history} />
       </Container>

@@ -1,19 +1,38 @@
 import React from "react";
 
 // import { Container } from './styles';
+import styled from "styled-components";
+import {
+  FaHome,
+  FaProductHunt,
+  FaCartArrowDown,
+  FaSignInAlt
+} from "react-icons/fa";
 
-export default function Header() {
+import { logout } from "../../services/auth";
+const Sign = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+`;
+
+export default function Header({ history }) {
+  const handleLogout = () => {
+    logout();
+    history.push("/");
+  };
   return (
     <nav
       id="menu"
-      class="navbar navbar-expand-lg navbar-dark bg-dark static-top"
+      className="navbar navbar-expand-lg navbar-dark bg-dark static-top"
     >
-      <div class="container">
-        <a class="navbar-brand" href="#">
+      <div className="container">
+        <a className="navbar-brand" href="/">
           E-commerce
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarResponsive"
@@ -21,25 +40,30 @@ export default function Header() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Inicio
-                <span class="sr-only">(current)</span>
+        <div className="collapse navbar-collapse" id="navbarResponsive">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/home">
+                <FaHome /> Inicio
+                <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/product">
-                Produto
+            <li className="nav-item">
+              <a className="nav-link" href="/product">
+                <FaProductHunt /> Produto
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Carrinho
+            <li className="nav-item">
+              <a className="nav-link" href="/cart">
+                <FaCartArrowDown /> Carrinho
               </a>
+            </li>
+            <li className="nav-item">
+              <Sign className="nav-link" onClick={handleLogout}>
+                <FaSignInAlt /> Sair
+              </Sign>
             </li>
           </ul>
         </div>

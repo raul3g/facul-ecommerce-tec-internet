@@ -12,6 +12,9 @@ export default createGlobalStyle`
     font-size: 14px;
     background: #f5f5f5;
     -webkit-font-smoothing: antialiased !important;
+    #menu{
+      background: linear-gradient(rgba(98, 0, 238, 0.8), rgba(49, 27, 146, 0.8)) !important;
+    }
   }
 
   html, body, #root{
