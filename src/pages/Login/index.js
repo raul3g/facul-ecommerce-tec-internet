@@ -18,14 +18,14 @@ export default function Login({ history }) {
     try {
       e.preventDefault();
       if (username === "" || password === "") {
-        setError("Error");
-      } else if (username === "raul" && password === "raul") {
+        setError("Todos os campos são obrigatorios!");
+      } else if (username === "user" && password === "user") {
         login("token");
         history.push("/home");
       } else {
         setPassword("");
         setUsername("");
-        setError("Error");
+        setError("Usuário ou senha invalido!");
       }
     } catch (err) {
       setError("Error");

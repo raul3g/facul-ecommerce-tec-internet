@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { Container, Content } from "./styles";
+import { Container, Content, Error } from "./styles";
 import Header from "../../components/Header";
 
-import { FaSearch, FaSpinner } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import Card from "../../components/Card";
 import ShowProduct from "../../components/ShowProduct";
 
@@ -14,13 +14,27 @@ export default function Product({ history, match }) {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [spiner, setSpiner] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSearch = e => {
     e.preventDefault();
-    setProducts(jsonTeste);
+    setError("");
+    setProducts([]);
+
+    const filterProduct = jsonTeste.filter(product =>
+      product.description
+        .toLocaleLowerCase()
+        .includes(search.toLocaleLowerCase())
+    );
+
     setSpiner(true);
     setTimeout(() => {
       setSpiner(false);
+      if (filterProduct.length !== 0) {
+        setProducts(filterProduct);
+      } else {
+        setError("Nenhum resultado encontrado!");
+      }
     }, 1000);
   };
 
@@ -51,8 +65,9 @@ export default function Product({ history, match }) {
           </div>
         </form>
       </Container>
+      {error && <Error className="alert">{error} </Error>}
       {products && (
-        <Content>
+        <Content key={products.id}>
           {spiner === false &&
             products.map(product => (
               <Card product={product} history={history} />

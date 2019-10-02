@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, Content, Info, FormProduct, Cep } from "./styles";
+import { Container, Content, Info, FormProduct } from "./styles";
 import jsonTeste from "../../config/apiFake";
 
 export default function ShowProduct({ id, history }) {
@@ -17,7 +17,6 @@ export default function ShowProduct({ id, history }) {
     e.preventDefault();
     const newProduct = { ...product, caunt };
     history.push("/cart");
-    console.log(newProduct);
   };
 
   return (

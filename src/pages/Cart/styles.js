@@ -5,6 +5,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+  .price {
+    font-size: 45px;
+    color: rgba(98, 0, 238, 0.8);
+  }
+
   .alert {
     text-align: center;
     color: rgba(255, 0, 0, 0.7);
@@ -65,11 +70,18 @@ export const Card = styled.div`
     justify-content: center;
     align-items: center;
     height: 30px;
-
     width: 100%;
-    color: red;
     span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5px;
+      background: red;
+      color: #fff;
+      border-radius: 15px;
       cursor: pointer;
+      width: 30px;
+      height: 30px;
       :hover {
         opacity: 0.7;
         transition: 0.3s ease;
@@ -87,10 +99,6 @@ export const Info = styled.div`
   padding: 10px 15px;
   #description {
     font-size: 20px;
-  }
-  #price {
-    font-size: 45px;
-    color: rgba(98, 0, 238, 0.8);
   }
 `;
 export const Product = styled.div`

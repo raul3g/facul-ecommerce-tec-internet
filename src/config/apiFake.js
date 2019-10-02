@@ -21,10 +21,12 @@ const jsonTeste = [
     description: "MacBook Pro de 13 Polegadas 128GB - Cinza espacial - Apple",
     stock: 123
   },
+
   {
     id: 4,
     price: 13,
-    img: "http://www.pngmart.com/files/7/IPhone-PNG-Background-Image.png",
+    img:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9xaRyL1UhTH14eTs_wGfCId7dDK-b_jW1YoeK-UFD_lJpdJFbXQ",
     description: "Apple Iphone X 64GB Cinza Espacial",
     stock: 1000
   }
@@ -35,10 +37,18 @@ export default jsonTeste;
 export const carrinho = [
   {
     id: 3,
+    price: 7600,
+    img: "http://pngimg.com/uploads/macbook/macbook_PNG35.png",
+    description: "MacBook Pro de 13 Polegadas 128GB - Cinza espacial - Apple",
+    stock: 10,
+    count: 2
+  },
+  {
+    id: 1,
     price: 13000,
     img: "http://pngimg.com/uploads/macbook/macbook_PNG35.png",
     description: "MacBook Pro de 13 Polegadas 128GB - Cinza espacial - Apple",
-    stock: 123,
-    count: 2
+    stock: 5,
+    count: 1
   }
 ];

@@ -48,3 +48,11 @@ export const Content = styled.div`
   padding: 20px;
   margin: 0;
 `;
+
+export const Error = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: rgba(255, 0, 0, 0.7);
+`;
